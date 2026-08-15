@@ -1,23 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 const players = [
-  { no: "61", name: "BUSE ERTUĞRAL" },
+  { no: "61", name: "BUSE ERTUĞRAL", image: asset("/roster-athletes/buse-ertugral-cutout.png") },
   { no: "3", name: "EMİNE EYLÜL İLELİ" },
-  { no: "18", name: "LARA SUDENAZ BOSTANCIOĞLU" },
+  { no: "18", name: "LARA SUDENAZ BOSTANCIOĞLU", image: asset("/roster-athletes/lara-bostancioglu-cutout.png") },
   { no: "17", name: "ELİF NAZ AKGÜMÜŞ" },
-  { no: "99", name: "İLKE YILMAZ" },
+  { no: "99", name: "İLKE YILMAZ", image: asset("/roster-athletes/ilke-yilmaz-cutout.png") },
   { no: "19", name: "TUANA ZENGİN" },
-  { no: "11", name: "ELÇİN SÜMER" },
-  { no: "2", name: "ELİF NAZ PELİSTER" },
-  { no: "22", name: "YAĞMUR GÜLSEREN" },
-  { no: "8", name: "DURU DENİZ BÖRKLÜ" },
-  { no: "5", name: "ESMA NUR DUDU" },
+  { no: "11", name: "ELÇİN SÜMER", image: asset("/roster-athletes/elcin-sumer-cutout.png") },
+  { no: "2", name: "ELİF NAZ PELİSTER", image: asset("/roster-athletes/elif-naz-pelister-cutout.png") },
+  { no: "22", name: "YAĞMUR GÜLSEREN", image: asset("/roster-athletes/yagmur-gulseren-cutout.png") },
+  { no: "8", name: "DURU DENİZ BÖRKLÜ", image: asset("/roster-athletes/duru-deniz-borklu-cutout.png") },
+  { no: "5", name: "ESMA NUR DUDU", image: asset("/roster-athletes/esma-nur-dudu-cutout.png") },
   { no: "14", name: "DURU PAMUK" },
-  { no: "77", name: "BEREN BİLİCİ" },
+  { no: "77", name: "BEREN BİLİCİ", image: asset("/roster-athletes/beren-bilici-cutout.png") },
+  { no: "7", name: "DURU AKKOÇ", image: asset("/roster-athletes/duru-akkoc-cutout.png") },
+];
+
+const teamStories = [
+  { name: "ELÇİN SÜMER", no: "11", image: asset("/team-stories/elcin-sumer.webp"), message: "Cesaretin oyunu değiştirir; her sayı yeni bir başlangıç." },
+  { name: "BEREN BİLİCİ", no: "77", image: asset("/team-stories/beren-bilici.webp"), message: "Enerjin sahaya yayılsın, hedefin her zaman bir sonraki sayı olsun." },
+  { name: "İLKE YILMAZ", no: "99", image: asset("/team-stories/ilke-yilmaz.webp"), message: "İnandığın sürece hiçbir top ulaşılmaz değildir." },
+  { name: "YAĞMUR GÜLSEREN", no: "22", image: asset("/team-stories/yagmur-gulseren.webp"), message: "Azminle yüksel, mücadelenle iz bırak." },
+  { name: "LARA BOSTANCIOĞLU", no: "18", image: asset("/team-stories/lara-bostancioglu.webp"), message: "Gücünü takımından al, kararlılığınla fark yarat." },
+  { name: "DURU DENİZ BÖRKLÜ", no: "8", image: asset("/team-stories/duru-deniz-borklu.webp"), message: "Her antrenmanda geliş, her maçta daha güçlü ol." },
+  { name: "BUSE ERTUĞRAL", no: "61", image: asset("/team-stories/buse-ertugral.webp"), message: "Tecrübenle yol göster, mücadelenle takıma güç kat." },
+  { name: "ESMA NUR DUDU", no: "5", image: asset("/team-stories/esma-nur-dudu.webp"), message: "Yüreğini sahaya koy; emek daima karşılığını bulur." },
+  { name: "ELİF NAZ PELİSTER", no: "2", image: asset("/team-stories/elif-naz-pelister.webp"), message: "Kendine inan, ritmini bul ve oyuna yön ver." },
+  { name: "DURU AKKOÇ", no: "7", image: asset("/team-stories/duru-akkoc.webp"), message: "Gülümse, mücadele et ve her topun peşinden git." },
 ];
 
 const teamLogos: Record<string, string> = {
@@ -69,6 +83,8 @@ const standings = [
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
+  const storyTrack = useRef<HTMLDivElement>(null);
+  const slideStories = (direction: number) => storyTrack.current?.scrollBy({ left: direction * Math.max(280, storyTrack.current.clientWidth * 0.82), behavior: "smooth" });
   return (
     <main className="page-shell">
       <div className="site-frame">
@@ -118,6 +134,7 @@ export default function Home() {
                   <div className="player-rank"><b>{String(index + 1).padStart(2, "0")}</b><span>KADRO</span></div>
                   <img className="roster-crest" src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="lazy" decoding="async" />
                   <strong className="jersey-number">{p.no}</strong>
+                  {p.image ? <><img className="roster-athlete" src={p.image} alt={`${p.name}, ${p.no} numaralı sporcu`} loading="lazy" decoding="async" /><span className="waist-mask" aria-hidden="true"></span></> : null}
                   <span className="team-strip">KADIN A TAKIMI</span>
                 </div>
                 <h3 className={`athlete-name ${p.name.length > 22 ? "long-name" : ""}`}>{p.name}</h3>
@@ -147,9 +164,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="coach-row" id="teknik">
-          <div className="coach-photo"><img src={asset("/team-bw.jpg")} alt="Voleybol teknik ekibi ve sporcular" loading="lazy" decoding="async" /><span>TEKNİK EKİP</span></div>
-          <div className="coach-text"><p className="kicker">BAŞANTRENÖR</p><h2>DENİZ<br />ERDEM</h2><blockquote>“Doğru oyun, güçlü iletişim ve takım ruhu.”</blockquote><p>Genç oyuncu gelişimini merkeze alan anlayışıyla takımımızın yeni sezon yolculuğuna liderlik ediyor.</p><a className="dark-button" href="#teknik">EKİBİ TANI <span>↗</span></a></div>
+        <section className="team-stories" id="teknik">
+          <div className="stories-head">
+            <div><p className="kicker">YENİ SEZON · TEK YÜREK</p><h2>BİRLİKTE<br />DAHA GÜÇLÜ</h2></div>
+            <div className="stories-intro"><p>Formayı taşıyan her sporcumuz, aynı hedefe yürüyen güçlü hikâyemizin bir parçası.</p><div className="story-controls"><button type="button" onClick={() => slideStories(-1)} aria-label="Önceki sporcu">←</button><button type="button" onClick={() => slideStories(1)} aria-label="Sonraki sporcu">→</button></div></div>
+          </div>
+          <div className="story-track" ref={storyTrack}>
+            {teamStories.map((story, index) => (
+              <article className="story-card" key={story.name}>
+                <div className="story-photo"><img src={story.image} alt={`${story.name} yeni sezon görseli`} loading="lazy" decoding="async" /><span>{String(index + 1).padStart(2, "0")}</span></div>
+                <div className="story-copy"><div><small>FORMA {story.no}</small><h3>{story.name}</h3></div><p>“{story.message}”</p></div>
+              </article>
+            ))}
+          </div>
+          <p className="story-swipe">KAYDIRARAK TAKIMI KEŞFET <span>↔</span></p>
         </section>
 
         <section className="table-section" id="puan">

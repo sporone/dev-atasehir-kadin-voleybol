@@ -39,3 +39,11 @@ yarn-error.log*
 /outputs/
 /work/
 /tmp/
+
+# Local roster image-generation intermediates; only final cutouts are published.
+/public/roster-athletes/*.webp
+/public/roster-athletes/*.png
+!/public/roster-athletes/*-cutout.png
+/docs/roster-athletes/*.webp
+/docs/roster-athletes/*.png
+!/docs/roster-athletes/*-cutout.png
