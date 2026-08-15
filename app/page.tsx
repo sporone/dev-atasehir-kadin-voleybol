@@ -21,16 +21,16 @@ const players = [
 ];
 
 const teamLogos: Record<string, string> = {
-  "Kartal Belediyespor": asset("/teams-transparent/kartal-belediye.png"),
-  "Kamarin Spor": asset("/teams-transparent/kamarin.png"),
-  "Ataşehir Kartalları": asset("/teams-transparent/atasehir-kartallari.png"),
-  "Alp Spor": asset("/teams-transparent/istanbul-alp.png"),
-  "Kartal Anadolu": asset("/teams-transparent/kartal-anadolu.png"),
-  Galatasaray: asset("/teams-transparent/galatasaray.png"),
-  "Dev Ataşehir": asset("/teams-transparent/dev-atasehir.png"),
-  "Can Milan Atletik": asset("/teams-transparent/milan-athletic.png"),
-  "Dinamo Spor": asset("/teams-transparent/dinamo.png"),
-  "Çengelköy Voleybol": asset("/teams-transparent/cengelkoy.png"),
+  "Kartal Belediyespor": asset("/teams-transparent/kartal-belediye.webp"),
+  "Kamarin Spor": asset("/teams-transparent/kamarin.webp"),
+  "Ataşehir Kartalları": asset("/teams-transparent/atasehir-kartallari.webp"),
+  "Alp Spor": asset("/teams-transparent/istanbul-alp.webp"),
+  "Kartal Anadolu": asset("/teams-transparent/kartal-anadolu.webp"),
+  Galatasaray: asset("/teams-transparent/galatasaray.webp"),
+  "Dev Ataşehir": asset("/teams-transparent/dev-atasehir.webp"),
+  "Can Milan Atletik": asset("/teams-transparent/milan-athletic.webp"),
+  "Dinamo Spor": asset("/teams-transparent/dinamo.webp"),
+  "Çengelköy Voleybol": asset("/teams-transparent/cengelkoy.webp"),
 };
 
 const matchWeeks = [
@@ -55,16 +55,16 @@ const matchWeeks = [
 ];
 
 const standings = [
-  { rank: "1", name: "Çengelköy Voleybol Spor Kulübü", logo: asset("/teams-transparent/cengelkoy.png"), played: "0", won: "0", points: "0" },
-  { rank: "2", name: "Dev Ataşehir Spor Kulübü", logo: asset("/teams-transparent/dev-atasehir.png"), played: "0", won: "0", points: "0", ours: true },
-  { rank: "3", name: "Kartal Belediyesi Spor Kulübü", logo: asset("/teams-transparent/kartal-belediye.png"), played: "0", won: "0", points: "0" },
-  { rank: "4", name: "Galatasaray Spor Kulübü", logo: asset("/teams-transparent/galatasaray.png"), played: "0", won: "0", points: "0" },
-  { rank: "5", name: "Can Milan Athletic Spor Kulübü", logo: asset("/teams-transparent/milan-athletic.png"), played: "0", won: "0", points: "0" },
-  { rank: "6", name: "İstanbul Alp Spor Kulübü", logo: asset("/teams-transparent/istanbul-alp.png"), played: "0", won: "0", points: "0" },
-  { rank: "7", name: "Kamarin Spor Kulübü", logo: asset("/teams-transparent/kamarin.png"), played: "0", won: "0", points: "0" },
-  { rank: "8", name: "Dinamo Spor Kulübü", logo: asset("/teams-transparent/dinamo.png"), played: "0", won: "0", points: "0" },
-  { rank: "9", name: "Kartal Anadolu Spor Kulübü", logo: asset("/teams-transparent/kartal-anadolu.png"), played: "0", won: "0", points: "0" },
-  { rank: "10", name: "Ataşehir Kartalları Spor Kulübü", logo: asset("/teams-transparent/atasehir-kartallari.png"), played: "0", won: "0", points: "0" },
+  { rank: "1", name: "Çengelköy Voleybol Spor Kulübü", logo: asset("/teams-transparent/cengelkoy.webp"), played: "0", won: "0", points: "0" },
+  { rank: "2", name: "Dev Ataşehir Spor Kulübü", logo: asset("/teams-transparent/dev-atasehir.webp"), played: "0", won: "0", points: "0", ours: true },
+  { rank: "3", name: "Kartal Belediyesi Spor Kulübü", logo: asset("/teams-transparent/kartal-belediye.webp"), played: "0", won: "0", points: "0" },
+  { rank: "4", name: "Galatasaray Spor Kulübü", logo: asset("/teams-transparent/galatasaray.webp"), played: "0", won: "0", points: "0" },
+  { rank: "5", name: "Can Milan Athletic Spor Kulübü", logo: asset("/teams-transparent/milan-athletic.webp"), played: "0", won: "0", points: "0" },
+  { rank: "6", name: "İstanbul Alp Spor Kulübü", logo: asset("/teams-transparent/istanbul-alp.webp"), played: "0", won: "0", points: "0" },
+  { rank: "7", name: "Kamarin Spor Kulübü", logo: asset("/teams-transparent/kamarin.webp"), played: "0", won: "0", points: "0" },
+  { rank: "8", name: "Dinamo Spor Kulübü", logo: asset("/teams-transparent/dinamo.webp"), played: "0", won: "0", points: "0" },
+  { rank: "9", name: "Kartal Anadolu Spor Kulübü", logo: asset("/teams-transparent/kartal-anadolu.webp"), played: "0", won: "0", points: "0" },
+  { rank: "10", name: "Ataşehir Kartalları Spor Kulübü", logo: asset("/teams-transparent/atasehir-kartallari.webp"), played: "0", won: "0", points: "0" },
 ];
 
 export default function Home() {
@@ -83,12 +83,12 @@ export default function Home() {
 
         <section className="hero-panel" id="home">
           <div className="hero-icon-rail">
-            <div className="orbit-ball"><span>↙</span><img src={asset("/volleyball.png")} alt="Voleybol topu" /><span>↘</span></div>
+            <div className="orbit-ball"><span>↙</span><img src={asset("/volleyball.webp")} alt="Voleybol topu" loading="eager" decoding="async" /><span>↘</span></div>
             <small>SAHADA<br />EN İYİ OYUN</small><div className="rail-arrows">‹ &nbsp;&nbsp; ›</div>
             <div className="rail-divider"></div>
-            <div className="crest-icon"><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir arması" /></div><small>ZAFER İÇİN<br />BİRLİKTEYİZ</small>
+            <div className="crest-icon"><img src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir arması" loading="eager" decoding="async" /></div><small>ZAFER İÇİN<br />BİRLİKTEYİZ</small>
           </div>
-          <div className="hero-athlete"><img src={asset("/hero-athlete.png")} alt="Dev Ataşehir forması giyen kadın voleybolcu" /></div>
+          <div className="hero-athlete"><img src={asset("/hero-athlete.webp")} alt="Dev Ataşehir forması giyen kadın voleybolcu" loading="eager" decoding="async" fetchPriority="high" /></div>
           <div className="hero-copy">
             <span className="mini-label"><img src={asset("/tvf-logo.svg")} alt="Türkiye Voleybol Federasyonu" /><b>KADINLAR 2. LİGİ</b></span>
             <div className="headline-line"><h1>SAHADA<br />TEK YÜREK</h1><div className="mini-action"><img src={asset("/team-highfive.jpg")} alt="Takım kutlaması" /><span>🏐</span></div></div>
@@ -98,7 +98,7 @@ export default function Home() {
 
         <section className="quick-grid">
           <article className="intro-copy"><p className="kicker">KADIN A TAKIMI</p><h2>GÜCÜMÜZ<br />BİRLİĞİMİZ.</h2><a href="#takim">KADROYU İNCELE ↗</a></article>
-          <article className="next-match card sky"><div className="card-top"><span>SIRADAKİ MAÇ</span><b>↗</b></div><div className="teams"><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir" /><strong>VS</strong><div className="rival">İV</div></div><div className="card-tags"><span>İÇ SAHA</span><span>2. LİG</span></div><h3>18 EKİM · 19:00</h3><p>Ülker Spor ve Etkinlik Salonu</p></article>
+          <article className="next-match card sky"><div className="card-top"><span>SIRADAKİ MAÇ</span><b>↗</b></div><div className="teams"><img src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="eager" decoding="async" /><strong>VS</strong><div className="rival">İV</div></div><div className="card-tags"><span>İÇ SAHA</span><span>2. LİG</span></div><h3>18 EKİM · 19:00</h3><p>Ülker Spor ve Etkinlik Salonu</p></article>
           <article className="result-card card orange"><div className="card-top"><span>SON MAÇ</span><b>↗</b></div><strong className="score">3 — 1</strong><div className="card-tags"><span>GALİBİYET</span><span>04. HAFTA</span></div><h3>DEV ATAŞEHİR</h3><p>Ege Voleybol karşısında galibiyet</p></article>
           <article className="ball-card card aqua"><div className="card-top"><span>FORM DURUMU</span><b>↗</b></div><div className="ball-icon">🏐</div><div className="card-tags"><span>GÜÇLÜ</span><span>FORMDA</span></div><div className="form-dots"><i>G</i><i>G</i><i>M</i><i>G</i><i>G</i></div></article>
         </section>
@@ -116,13 +116,12 @@ export default function Home() {
               <article className="player-card roster-card" key={p.no} aria-label={`${p.name}, ${p.no} numaralı sporcu`}>
                 <div className="player-image roster-visual">
                   <div className="player-rank"><b>{String(index + 1).padStart(2, "0")}</b><span>KADRO</span></div>
-                  <span className="roster-label">DEV ATAŞEHİR</span>
-                  <img className="roster-crest" src={asset("/teams-transparent/dev-atasehir.png")} alt="" aria-hidden="true" />
+                  <img className="roster-crest" src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="lazy" decoding="async" />
                   <strong className="jersey-number">{p.no}</strong>
                   <span className="team-strip">KADIN A TAKIMI</span>
                 </div>
                 <h3 className={`athlete-name ${p.name.length > 22 ? "long-name" : ""}`}>{p.name}</h3>
-                <div className="player-meta"><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir" /><b>{p.no}</b><i></i><span>SPORCU</span></div>
+                <div className="player-meta"><img src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="lazy" decoding="async" /><b>{p.no}</b><i></i><span>SPORCU</span></div>
               </article>
             ))}
           </div>
@@ -137,9 +136,9 @@ export default function Home() {
                 <div className="week-matches">
                   {matches.map(([home, away]) => (
                     <div className={`week-match ${home === "Dev Ataşehir" || away === "Dev Ataşehir" ? "ours" : ""}`} key={`${home}-${away}`}>
-                      <div className="week-team home"><span>{home}</span><img src={teamLogos[home]} alt={`${home} logosu`} /></div>
+                      <div className="week-team home"><span>{home}</span><img src={teamLogos[home]} alt={`${home} logosu`} loading="lazy" decoding="async" /></div>
                       <i>VS</i>
-                      <div className="week-team away"><img src={teamLogos[away]} alt={`${away} logosu`} /><span>{away}</span></div>
+                      <div className="week-team away"><img src={teamLogos[away]} alt={`${away} logosu`} loading="lazy" decoding="async" /><span>{away}</span></div>
                     </div>
                   ))}
                 </div>
@@ -149,18 +148,18 @@ export default function Home() {
         </section>
 
         <section className="coach-row" id="teknik">
-          <div className="coach-photo"><img src={asset("/team-bw.jpg")} alt="Voleybol teknik ekibi ve sporcular" /><span>TEKNİK EKİP</span></div>
+          <div className="coach-photo"><img src={asset("/team-bw.jpg")} alt="Voleybol teknik ekibi ve sporcular" loading="lazy" decoding="async" /><span>TEKNİK EKİP</span></div>
           <div className="coach-text"><p className="kicker">BAŞANTRENÖR</p><h2>DENİZ<br />ERDEM</h2><blockquote>“Doğru oyun, güçlü iletişim ve takım ruhu.”</blockquote><p>Genç oyuncu gelişimini merkeze alan anlayışıyla takımımızın yeni sezon yolculuğuna liderlik ediyor.</p><a className="dark-button" href="#teknik">EKİBİ TANI <span>↗</span></a></div>
         </section>
 
         <section className="table-section" id="puan">
           <div className="table-title"><p className="kicker">SEZON BAŞLANGICI</p><h2>PUAN<br />DURUMU</h2><p className="data-note">Maç verileri Google Drive bağlantısı eklendiğinde otomatik güncellenecek.</p><div className="round-icon">🏐</div></div>
-          <div className="league-table"><div className="t-head"><span>#</span><span>TAKIM</span><span>O</span><span>G</span><span>P</span></div>{standings.map(team=><div className={`t-row ${team.ours?"active":""}`} key={team.name}><span>{team.rank}</span><span className="team-cell"><img src={team.logo} alt={`${team.name} logosu`} /><b>{team.name}</b>{team.ours?<small>BİZ</small>:null}</span><span>{team.played}</span><span>{team.won}</span><span>{team.points}</span></div>)}</div>
+          <div className="league-table"><div className="t-head"><span>#</span><span>TAKIM</span><span>O</span><span>G</span><span>P</span></div>{standings.map(team=><div className={`t-row ${team.ours?"active":""}`} key={team.name}><span>{team.rank}</span><span className="team-cell"><img src={team.logo} alt={`${team.name} logosu`} loading="lazy" decoding="async" /><b>{team.name}</b>{team.ours?<small>BİZ</small>:null}</span><span>{team.played}</span><span>{team.won}</span><span>{team.points}</span></div>)}</div>
         </section>
 
-        <section className="join-banner"><div><small>TRİBÜNDE BİRLİKTE</small><h2>ATAŞEHİR’İN<br />SESİ OL</h2></div><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir logosu" /><a href="#iletisim">BİZE KATIL <span>↗</span></a></section>
+        <section className="join-banner"><div><small>TRİBÜNDE BİRLİKTE</small><h2>ATAŞEHİR’İN<br />SESİ OL</h2></div><img src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir logosu" loading="lazy" decoding="async" /><a href="#iletisim">BİZE KATIL <span>↗</span></a></section>
 
-        <footer id="iletisim"><div className="footer-brand"><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir" /><h3>DEV ATAŞEHİR</h3><p>Kadın voleybolunun yükselen sesi.</p></div><div><b>KULÜP</b><a href="#takim">Takım</a><a href="#teknik">Teknik Ekip</a><a href="#puan">Puan Durumu</a></div><div><b>MAÇLAR</b><a href="#maclar">Fikstür</a><a href="#maclar">Sonuçlar</a><a href="#home">Salon Bilgisi</a></div><div><b>TAKİP ET</b><a href="#iletisim">Instagram ↗</a><a href="#iletisim">YouTube ↗</a><a href="mailto:info@devatasehir.org">E-posta ↗</a></div><div className="newsletter"><b>TAKIMDAN HABERDAR OL</b><p>Maç ve duyurular için e-posta listemize katıl.</p><label><input placeholder="E-posta adresin" aria-label="E-posta adresi" /><button aria-label="Gönder">→</button></label></div></footer>
+        <footer id="iletisim"><div className="footer-brand"><img src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="lazy" decoding="async" /><h3>DEV ATAŞEHİR</h3><p>Kadın voleybolunun yükselen sesi.</p></div><div><b>KULÜP</b><a href="#takim">Takım</a><a href="#teknik">Teknik Ekip</a><a href="#puan">Puan Durumu</a></div><div><b>MAÇLAR</b><a href="#maclar">Fikstür</a><a href="#maclar">Sonuçlar</a><a href="#home">Salon Bilgisi</a></div><div><b>TAKİP ET</b><a href="#iletisim">Instagram ↗</a><a href="#iletisim">YouTube ↗</a><a href="mailto:info@devatasehir.org">E-posta ↗</a></div><div className="newsletter"><b>TAKIMDAN HABERDAR OL</b><p>Maç ve duyurular için e-posta listemize katıl.</p><label><input placeholder="E-posta adresin" aria-label="E-posta adresi" /><button aria-label="Gönder">→</button></label></div></footer>
         <div className="copyright">© 2026 DEV ATAŞEHİR SPOR KULÜBÜ <span>Demo içeriklerle hazırlanmıştır.</span></div>
       </div>
     </main>
