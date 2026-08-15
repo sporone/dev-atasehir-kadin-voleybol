@@ -4,15 +4,14 @@ Dev Ataşehir Spor Kulübü Kadınlar 2. Ligi için hazırlanan modern takım, s
 
 ## Canlı web
 
-- [GitHub Pages üzerinden aç](https://sporone.github.io/dev-atasehir-kadin-voleybol/)
-- [Doğrudan canlı siteyi aç](https://dev-atasehir-kadin-voleybol-kulubu.kursatbugrakaraoglan.chatgpt.site/)
+- [GitHub Pages sitesini aç](https://sporone.github.io/dev-atasehir-kadin-voleybol/)
 
 ## Geliştirme
 
 ```bash
 npm install
 npm run dev
-npm run build
+npm run build:pages
 ```
 
-Site içeriği `app/`, görseller ve takım logoları `public/` klasöründe bulunur.
+Site içeriği `app/`, görseller ve takım logoları `public/` klasöründe bulunur. GitHub Pages çıktısı `docs/` klasöründe üretilir.
