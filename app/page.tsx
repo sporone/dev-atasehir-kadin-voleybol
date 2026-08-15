@@ -5,10 +5,19 @@ import { useState } from "react";
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 const players = [
-  { no: "07", name: "Duru Aksoy", role: "Pasör", height: "178", born: "2002", image: asset("/hero-athlete.png"), color: "sky" },
-  { no: "10", name: "Ece Yalçın", role: "Smaçör", height: "184", born: "2000", image: asset("/hero-athlete.png"), color: "orange" },
-  { no: "12", name: "Selin Kaya", role: "Orta Oyuncu", height: "190", born: "1999", image: asset("/hero-athlete.png"), color: "yellow" },
-  { no: "18", name: "İdil Demir", role: "Libero", height: "172", born: "2003", image: asset("/hero-athlete.png"), color: "mint" },
+  { no: "61", name: "BUSE ERTUĞRAL" },
+  { no: "3", name: "EMİNE EYLÜL İLELİ" },
+  { no: "18", name: "LARA SUDENAZ BOSTANCIOĞLU" },
+  { no: "17", name: "ELİF NAZ AKGÜMÜŞ" },
+  { no: "99", name: "İLKE YILMAZ" },
+  { no: "19", name: "TUANA ZENGİN" },
+  { no: "11", name: "ELÇİN SÜMER" },
+  { no: "2", name: "ELİF NAZ PELİSTER" },
+  { no: "22", name: "YAĞMUR GÜLSEREN" },
+  { no: "8", name: "DURU DENİZ BÖRKLÜ" },
+  { no: "5", name: "ESMA NUR DUDU" },
+  { no: "14", name: "DURU PAMUK" },
+  { no: "77", name: "BEREN BİLİCİ" },
 ];
 
 const teamLogos: Record<string, string> = {
@@ -101,9 +110,21 @@ export default function Home() {
         </section>
 
         <section className="roster" id="takim">
-          <div className="section-title"><div><p className="kicker">KADIN A TAKIMI</p><h2>SAHADAKİ<br />GÜCÜMÜZ</h2></div><p>Kartları seçerek oyuncuların pozisyon ve temel bilgilerini görebilirsiniz.</p></div>
+          <div className="section-title"><div><p className="kicker">KADIN A TAKIMI</p><h2>SAHADAKİ<br />GÜCÜMÜZ</h2></div><p>Dev Ataşehir Kadın A Takımı’nın güçlü kadrosunu ve forma numaralarını keşfedin.</p></div>
           <div className="player-grid">
-            {players.map((p, index) => <article className="player-card" key={p.no} tabIndex={0}><div className="player-image"><div className="player-rank"><b>{index + 1}.</b><span>FORMA</span></div><div className="player-points"><b>{p.height}</b><span>CM</span></div><img src={p.image} alt={`${p.name} sporcu fotoğrafı`} /></div><h3 className="athlete-name">{p.name}</h3><div className="player-meta"><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir" /><b>{p.no}</b><i></i><span>{p.role}</span></div></article>)}
+            {players.map((p, index) => (
+              <article className="player-card roster-card" key={p.no} aria-label={`${p.name}, ${p.no} numaralı sporcu`}>
+                <div className="player-image roster-visual">
+                  <div className="player-rank"><b>{String(index + 1).padStart(2, "0")}</b><span>KADRO</span></div>
+                  <span className="roster-label">DEV ATAŞEHİR</span>
+                  <img className="roster-crest" src={asset("/teams-transparent/dev-atasehir.png")} alt="" aria-hidden="true" />
+                  <strong className="jersey-number">{p.no}</strong>
+                  <span className="team-strip">KADIN A TAKIMI</span>
+                </div>
+                <h3 className={`athlete-name ${p.name.length > 22 ? "long-name" : ""}`}>{p.name}</h3>
+                <div className="player-meta"><img src={asset("/teams-transparent/dev-atasehir.png")} alt="Dev Ataşehir" /><b>{p.no}</b><i></i><span>SPORCU</span></div>
+              </article>
+            ))}
           </div>
         </section>
 
