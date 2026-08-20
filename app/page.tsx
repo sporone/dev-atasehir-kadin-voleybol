@@ -6,11 +6,11 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//
 
 const players = [
   { no: "61", name: "BUSE ERTUĞRAL", image: asset("/roster-athletes/buse-ertugral-cutout.png") },
-  { no: "3", name: "EMİNE EYLÜL İLELİ" },
+  { no: "3", name: "EMİNE EYLÜL İLELİ", image: asset("/roster-athletes/eylul-ileli-cutout.png"), photoClass: "wide-cutout" },
   { no: "18", name: "LARA SUDENAZ BOSTANCIOĞLU", image: asset("/roster-athletes/lara-bostancioglu-cutout.png") },
-  { no: "17", name: "ELİF NAZ AKGÜMÜŞ" },
+  { no: "17", name: "ELİF NAZ AKGÜMÜŞ", image: asset("/roster-athletes/elif-naz-akgumus-cutout.png"), photoClass: "wide-cutout" },
   { no: "99", name: "İLKE YILMAZ", image: asset("/roster-athletes/ilke-yilmaz-cutout.png") },
-  { no: "19", name: "TUANA ZENGİN" },
+  { no: "19", name: "TUANA ZENGİN", image: asset("/roster-athletes/tuana-zengin-cutout.png"), photoClass: "wide-cutout" },
   { no: "11", name: "ELÇİN SÜMER", image: asset("/roster-athletes/elcin-sumer-cutout.png") },
   { no: "2", name: "ELİF NAZ PELİSTER", image: asset("/roster-athletes/elif-naz-pelister-cutout.png") },
   { no: "22", name: "YAĞMUR GÜLSEREN", image: asset("/roster-athletes/yagmur-gulseren-cutout.png") },
@@ -32,6 +32,9 @@ const teamStories = [
   { name: "ESMA NUR DUDU", no: "5", image: asset("/team-stories/esma-nur-dudu.webp"), message: "Yüreğini sahaya koy; emek daima karşılığını bulur." },
   { name: "ELİF NAZ PELİSTER", no: "2", image: asset("/team-stories/elif-naz-pelister.webp"), message: "Kendine inan, ritmini bul ve oyuna yön ver." },
   { name: "DURU AKKOÇ", no: "7", image: asset("/team-stories/duru-akkoc.webp"), message: "Gülümse, mücadele et ve her topun peşinden git." },
+  { name: "TUANA ZENGİN", no: "19", image: asset("/team-stories/tuana-zengin.webp"), message: "Kararlılığınla yüksel, enerjinle takıma güç kat." },
+  { name: "EYLÜL İLELİ", no: "3", image: asset("/team-stories/eylul-ileli.webp"), message: "Her yeni adımda kendine inan, sahada iz bırak." },
+  { name: "ELİF NAZ AKGÜMÜŞ", no: "17", image: asset("/team-stories/elif-naz-akgumus.webp"), message: "Azminle oyuna yön ver, takımınla birlikte büyü." },
 ];
 
 const teamLogos: Record<string, string> = {
@@ -112,6 +115,22 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="team-stories" id="teknik">
+          <div className="stories-head">
+            <div><p className="kicker">YENİ SEZON · TEK YÜREK</p><h2>BİRLİKTE DAHA GÜÇLÜ</h2></div>
+            <div className="stories-intro"><p>Formayı taşıyan her sporcumuz, aynı hedefe yürüyen güçlü hikâyemizin bir parçası.</p><div className="story-controls"><button type="button" onClick={() => slideStories(-1)} aria-label="Önceki sporcu">←</button><button type="button" onClick={() => slideStories(1)} aria-label="Sonraki sporcu">→</button></div></div>
+          </div>
+          <div className="story-track" ref={storyTrack}>
+            {teamStories.map((story, index) => (
+              <article className="story-card" key={story.name}>
+                <div className="story-photo"><img src={story.image} alt={`${story.name} yeni sezon görseli`} loading="lazy" decoding="async" /><span>{String(index + 1).padStart(2, "0")}</span></div>
+                <div className="story-copy"><div><small>FORMA {story.no}</small><h3>{story.name}</h3></div><p>“{story.message}”</p></div>
+              </article>
+            ))}
+          </div>
+          <p className="story-swipe">KAYDIRARAK TAKIMI KEŞFET <span>↔</span></p>
+        </section>
+
         <section className="quick-grid">
           <article className="intro-copy"><p className="kicker">KADIN A TAKIMI</p><h2>GÜCÜMÜZ<br />BİRLİĞİMİZ.</h2><a href="#takim">KADROYU İNCELE ↗</a></article>
           <article className="next-match card sky"><div className="card-top"><span>SIRADAKİ MAÇ</span><b>↗</b></div><div className="teams"><img src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="eager" decoding="async" /><strong>VS</strong><div className="rival">İV</div></div><div className="card-tags"><span>İÇ SAHA</span><span>2. LİG</span></div><h3>18 EKİM · 19:00</h3><p>Ülker Spor ve Etkinlik Salonu</p></article>
@@ -119,14 +138,18 @@ export default function Home() {
           <article className="ball-card card aqua"><div className="card-top"><span>FORM DURUMU</span><b>↗</b></div><div className="ball-icon">🏐</div><div className="card-tags"><span>GÜÇLÜ</span><span>FORMDA</span></div><div className="form-dots"><i>G</i><i>G</i><i>M</i><i>G</i><i>G</i></div></article>
         </section>
 
-        <section className="feature-row">
-          <div className="feature-copy"><h2>HER SAYIDA<br />AYNI HEDEF</h2><p>Oyun disiplinimiz, enerjimiz ve Ataşehir’den aldığımız güçle sahadayız.</p><a className="dark-button" href="#maclar">FİKSTÜRÜ GÖR <span>↗</span></a></div>
-          <div className="feature-image"><img src={asset("/team-highfive.jpg")} alt="Voleybolcular sayı sonrası kutlama yapıyor" /></div>
-          <div className="feature-side"><div className="round-icon green">🏆</div><small>SEZON HEDEFİ</small><h3>PLAY-OFF</h3><div className="yellow-note"><b>3</b><span>MAÇTA<br />2 GALİBİYET</span></div></div>
+        <section className="feature-row live-match-row">
+          <div className="feature-copy"><h2>1. HAFTA<br />MAÇI</h2><p>Sezonun ilk haftasında Dev Ataşehir, Can Milan Atletik karşısında sahaya çıkıyor.</p><a className="dark-button" href="#maclar">FİKSTÜRÜ GÖR <span>↗</span></a></div>
+          <div className="feature-image live-video" aria-label="Gelecek maç YouTube canlı yayın alanı">
+            <div className="live-video-top"><span></span> 1. HAFTA · YOUTUBE CANLI YAYIN</div>
+            <div className="live-match-teams"><div><img src={teamLogos["Dev Ataşehir"]} alt="Dev Ataşehir logosu" /><b>DEV ATAŞEHİR</b></div><i>VS</i><div><img src={teamLogos["Can Milan Atletik"]} alt="Can Milan Atletik logosu" /><b>CAN MILAN ATLETİK</b></div></div>
+            <div className="live-play" aria-hidden="true">▶</div>
+            <div className="live-match-info"><small>GELECEK MAÇ · 1. HAFTA</small><strong>YAYIN LİNKİ YAKINDA</strong><p>MAÇ SAATİ VE SALON BİLGİSİ EKLENECEK</p></div>
+          </div>
         </section>
 
         <section className="roster" id="takim">
-          <div className="section-title"><div><p className="kicker">KADIN A TAKIMI</p><h2>SAHADAKİ<br />GÜCÜMÜZ</h2></div><p>Dev Ataşehir Kadın A Takımı’nın güçlü kadrosunu ve forma numaralarını keşfedin.</p></div>
+          <div className="section-title"><div><p className="kicker">KADIN A TAKIMI</p><h2>SAHADAKİ GÜCÜMÜZ</h2></div><p>Dev Ataşehir Kadın A Takımı’nın güçlü kadrosunu ve forma numaralarını keşfedin.</p></div>
           <div className="player-grid">
             {players.map((p, index) => (
               <article className="player-card roster-card" key={p.no} aria-label={`${p.name}, ${p.no} numaralı sporcu`}>
@@ -134,7 +157,7 @@ export default function Home() {
                   <div className="player-rank"><b>{String(index + 1).padStart(2, "0")}</b><span>KADRO</span></div>
                   <img className="roster-crest" src={asset("/teams-transparent/dev-atasehir.webp")} alt="Dev Ataşehir" loading="lazy" decoding="async" />
                   <strong className="jersey-number">{p.no}</strong>
-                  {p.image ? <><img className="roster-athlete" src={p.image} alt={`${p.name}, ${p.no} numaralı sporcu`} loading="lazy" decoding="async" /><span className="waist-mask" aria-hidden="true"></span></> : null}
+                  {p.image ? <img className={`roster-athlete ${p.photoClass ?? ""}`} src={p.image} alt={`${p.name}, ${p.no} numaralı sporcu`} loading="lazy" decoding="async" /> : null}
                   <span className="team-strip">KADIN A TAKIMI</span>
                 </div>
                 <h3 className={`athlete-name ${p.name.length > 22 ? "long-name" : ""}`}>{p.name}</h3>
@@ -162,22 +185,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </section>
-
-        <section className="team-stories" id="teknik">
-          <div className="stories-head">
-            <div><p className="kicker">YENİ SEZON · TEK YÜREK</p><h2>BİRLİKTE<br />DAHA GÜÇLÜ</h2></div>
-            <div className="stories-intro"><p>Formayı taşıyan her sporcumuz, aynı hedefe yürüyen güçlü hikâyemizin bir parçası.</p><div className="story-controls"><button type="button" onClick={() => slideStories(-1)} aria-label="Önceki sporcu">←</button><button type="button" onClick={() => slideStories(1)} aria-label="Sonraki sporcu">→</button></div></div>
-          </div>
-          <div className="story-track" ref={storyTrack}>
-            {teamStories.map((story, index) => (
-              <article className="story-card" key={story.name}>
-                <div className="story-photo"><img src={story.image} alt={`${story.name} yeni sezon görseli`} loading="lazy" decoding="async" /><span>{String(index + 1).padStart(2, "0")}</span></div>
-                <div className="story-copy"><div><small>FORMA {story.no}</small><h3>{story.name}</h3></div><p>“{story.message}”</p></div>
-              </article>
-            ))}
-          </div>
-          <p className="story-swipe">KAYDIRARAK TAKIMI KEŞFET <span>↔</span></p>
         </section>
 
         <section className="table-section" id="puan">
